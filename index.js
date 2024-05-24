@@ -1,15 +1,21 @@
-const express = require('express');
-const app = express();
-const cors= require('cors');
-app.use(cors());
-app.use(express.json());
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import {BrowserRouter} from "react-router-dom";
 
-mongoose.connect('mongodb+srv://fatimasuleman73:LRr?hUB/vD7RR#C@cluster0.pmybxge.mongodb.net/');
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+    <App />
+    </BrowserRouter>
+    
+  </React.StrictMode>
+);
 
-
-app.post('/register',  (req, res) => {
-     const {username,password}=req.body;
-    res.json({requestData:{username,password}});
-  }); 
-   
-  app.listen(4000);
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
